@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Libre Baskerville', serif sans-serif;
+}
+a{
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.6rem;
+    color: whitesmoke;
+}
+h1{
+    font-weight: 800;
+    font-size: 3.6rem;
+    margin: 1.6rem 0;
+}
+h2{
+    font-weight: 800;
+    font-size: 2.4rem;
+    margin: 1.6rem;
+}
+p{
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin: 1.6rem;
+}
+img{
+    width: 100%;
+    height: auto;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    align-items: center;
+    margin: auto;
+}
+section{
+    padding: 100px 0;
+}
+
+/* Hero SECTION */
+
+header{
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.95)), url(../images/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    color: whitesmoke;
+}
+
+.logo h1{
+    font-size: 3.2rem;
+    color: whitesmoke;
+    margin: 0;
+}
+
+nav{
+    padding: 2% 8%;
+    display: flex;
+    justify-content: space-between;
+}
+nav ul{
+    list-style-type: none;
+}
+#meniu{
+    display: none;
+}
+nav ul li{
+    display: inline-block;
+    margin-left: 2.5rem;
+}
+nav ul li a:hover{
+    color: gray;
+    transition: .5s ease-in-out;
+}
+
+
+@media only screen and (max-width: 768px){
+    #meniu{
+        display: block;
+        position: absolute;
+        top: 18px;
+        right: 32px;
+    }   
+    nav{
+        flex-direction: column;
+        position: relative;
+    }
+    nav ul{
+        background: whitesmoke;
+        display: none;
+    }
+    nav ul li{
+        display: block;
+        padding: 2% 0;
+        border-bottom: solid 1px black;
+    }
+    nav ul li a{
+        color: #222;
+    }
+}
+
