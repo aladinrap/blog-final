@@ -16,11 +16,12 @@ h3{
         width: 50%;
         padding: 5px;   
 }
-#submitLogin{
+.submit-button{
     font-size: 2rem;
     margin-top: 1.6rem;
     padding: 5px;
     background-color: rgba(163,185,206, 0.8);
     border-radius: 10px;
     width: 50%;
+    cursor: pointer;
 }
