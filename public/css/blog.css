@@ -1,0 +1,18 @@
+.articles-container{
+margin-left: 2rem;
+margin-right: 2rem;
+}
+.article{
+    background: rgba(200,200,200,0.4);
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.tools-article{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.tools-article box-icon{
+    margin-right: 2rem;
+}

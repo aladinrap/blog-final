@@ -100,7 +100,6 @@ nav ul li a:hover{
     nav ul li{
         display: block;
         padding: 2% 0;
-        border-bottom: solid 1px black;
     }
     nav ul li a{
         color: #222;

@@ -34,6 +34,7 @@ const logout = (req, res) => {
 const register = async (req, res) => {
     const email = req.body.email;
     const Npassword = req.body.password;
+    const username = req.body.username;
     if( !email || !Npassword ) return res.json({ststus: "error", error:"Please Enter your email and password"});
     else {
         console.log(email);
@@ -43,7 +44,7 @@ const register = async (req, res) => {
             else {
                 const password = await bcrypt.hash(Npassword, 8);
                 console.log(password);
-                db.query('INSERT INTO users SET ?', {email:email, password:password}, (error, results) => {
+                db.query('INSERT INTO users SET ?', {email:email, password:password, username:username}, (error, results) => {
                     if(error) throw error;
                     return res.json({status: "success", message: "User has been registred"})
                 })
