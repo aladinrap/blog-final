@@ -9,13 +9,13 @@
 
 body{
     font-family: 'Libre Baskerville', serif sans-serif;
-    height: 100vh;
     background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.95)), url(../images/bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     color: whitesmoke;
     min-height: 100vh;
+    background-color: black;
 }
 a{
     text-decoration: none;
@@ -107,7 +107,7 @@ nav ul li a:hover{
 }
 
 footer{
-    position: absolute;
+    position: relative;
     width: 100%;
     bottom: 0;
 }

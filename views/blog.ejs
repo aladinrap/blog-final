@@ -2,16 +2,22 @@
 
 <div class="articles-container">
     <h1>Articole URZISOFT:</h1>
-    <div class="article">
-        <div class="article-content">
-        <h2>URZISOFT Crash Course</h2>
-        <h3>Autor: Aladin</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto perferendis praesentium modi velit exercitationem esse vel libero in nisi doloremque eveniet iusto autem, accusamus maiores, quod officiis earum et ex beatae maxime amet odio. Voluptatem maiores itaque eum, illum beatae perspiciatis nam? Nesciunt, repellat voluptates. Nesciunt ad doloribus deleniti dicta.</p>
-        </div>
-            <div class="tools-article">
-                <box-icon type='solid' name='comment' color="whitesmoke"></box-icon>
-                <box-icon name='like' type='solid' color="whitesmoke"></box-icon>
-                <box-icon name='report' type='solid' color="whitesmoke" ></box-icon>
+    <% if(articles != null){ %>
+        <% for(var i=0; i < articles.length; i++) {%>
+        <div class="article">
+            <div class="article-content">
+            <h2><%= articles[i].title %></h2>
+            <h3>Autor: <%= username %></h3>
+            <p><%= articles[i].content %></p>
             </div>
+                <div class="tools-article">
+                    <box-icon type='solid' name='comment' color="whitesmoke" id="add-comment"></box-icon>
+                    <box-icon name='like' type='solid' color="whitesmoke"></box-icon>
+                    <box-icon name='report' type='solid' color="whitesmoke" ></box-icon>
+                </div>
         </div>
+        <% } %>
+                <%}else{%>
+                    <p>No articles avaible!</p>
+                <%}%>
 </div>

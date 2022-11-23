@@ -8,6 +8,7 @@ margin-right: 2rem;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
+    margin-top: 2rem;
 }
 .tools-article{
     display: flex;
@@ -15,4 +16,5 @@ margin-right: 2rem;
 }
 .tools-article box-icon{
     margin-right: 2rem;
+    cursor: pointer;
 }
