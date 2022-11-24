@@ -8,8 +8,7 @@ const blogPosts = (req, res) => {
         if(!articles.length){ 
             res.render('blog', { title: 'URZI-BLOG', layout: './layouts/home', message: "Articles no more avaible!" })
         }
-        else {
-            
+        else {           
             db.query("SELECT * FROM users", (err, user) => {
                 if(err) throw err;          
             res.render('blog', { title: 'URZI-BLOG', layout: './layouts/home', message: "Doua articole disponibile!", user, articles})

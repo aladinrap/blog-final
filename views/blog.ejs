@@ -6,15 +6,25 @@
         <% for(var i=0; i < articles.length; i++) {%>
         <div class="article">
             <div class="article-content">
-            <h2><%= articles[i].title %></h2>
-            <h3>Autor: <%= user[articles[i].user_id-1].username %></h3>
-            <p><%= articles[i].content %></p>
+                <h2><%= articles[i].title %></h2>
+                <h3>Author: <%= user[articles[i].user_id-1].username %></h3>
+                <p><%= articles[i].content %></p>
             </div>
-                <div class="tools-article">
-                    <box-icon type='solid' name='comment' color="whitesmoke" id="add-comment"></box-icon>
-                    <box-icon name='like' type='solid' color="whitesmoke"></box-icon>
-                    <box-icon name='report' type='solid' color="whitesmoke" ></box-icon>
+            <div class="comment-container">
+                <div class="comment-header">
+                    <h2>Comments:</h2>
+                    <button class="add-comment">ADD COMMENT</button>
                 </div>
+                <div class="comment-content">
+                    <h3>Author: Jhonny BRAVO</h3>
+                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum dolore non qui ipsa placeat numquam at, ipsam sed veniam error nulla illo fugiat quaerat eaque sint laboriosam itaque voluptates blanditiis?</p>
+                </div>
+            </div>
+            <div class="tools-article">
+                <box-icon type='solid' name='comment' color="whitesmoke" class="comment-section"></box-icon>
+                <box-icon name='like' type='solid' color="whitesmoke"></box-icon>
+                <box-icon name='report' type='solid' color="whitesmoke" ></box-icon>
+            </div>
         </div>
         <% } %>
                 <%}else{%>

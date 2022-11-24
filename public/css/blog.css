@@ -10,6 +10,7 @@ margin-right: 2rem;
     flex-direction: column;
     margin-top: 2rem;
 }
+
 .tools-article{
     display: flex;
     flex-direction: row-reverse;
@@ -18,3 +19,34 @@ margin-right: 2rem;
     margin-right: 2rem;
     cursor: pointer;
 }
+.comment-container{
+    margin: 3rem 3rem 3rem 3rem;
+    padding: 1rem;
+    background: rgba(200,200,200,0.2);
+    border-radius: 5px;
+    border: rgba(0,0,0,0.6) solid 0.5px;
+    display: none;
+}
+.comment-content{
+    margin: 3rem 3rem 3rem 3rem;
+    padding: 1rem;
+    background-color: rgba(255,255,255,0.6);
+    color: black;
+    border-radius: 5px;
+    border: rgba(0,0,0,0.6) solid 0.5px;
+}
+.comment-header button{
+    font-size: 2rem;
+    width: 20%;
+    margin-left: 2rem;
+    padding: 5px;
+    border-radius: 10px;
+    border: rgba(0,0,0,0.6) solid 0.5px;
+    background-color: rgba(255,255,255,0.6);
+}
+
+.comment-header button:hover{
+    background-color: rgba(255,255,255,0.8);
+    cursor: pointer;
+}
+
