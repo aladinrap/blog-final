@@ -10,8 +10,16 @@ const blogPosts = (req, res) => {
         }
         else {           
             db.query("SELECT * FROM users", (err, user) => {
-                if(err) throw err;          
-            res.render('blog', { title: 'URZI-BLOG', layout: './layouts/home', message: "Doua articole disponibile!", user, articles})
+                if(err) throw err;
+                db.query("SELECT * FROM coments", (err, comments) => {
+                    if(err) throw err;
+                    if(!comments.length){ 
+                        res.render('blog', { title: 'URZI-BLOG', layout: './layouts/home', user, articles, comments})
+                    }
+                    else {                   
+                        res.render('blog', { title: 'URZI-BLOG', layout: './layouts/home', message: "No comments!", user, articles, comments})
+                    }
+                })              
             })
         }
     })

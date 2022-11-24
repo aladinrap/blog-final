@@ -15,10 +15,15 @@
                     <h2>Comments:</h2>
                     <button class="add-comment">ADD COMMENT</button>
                 </div>
+                <% for(var j=0; j < comments.length; j++) {%>
+                    <% if( comments[j].post_id == articles[i].id ) {%>
                 <div class="comment-content">
-                    <h3>Author: Jhonny BRAVO</h3>
-                    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum dolore non qui ipsa placeat numquam at, ipsam sed veniam error nulla illo fugiat quaerat eaque sint laboriosam itaque voluptates blanditiis?</p>
+                    <h3>Author: <%= comments[j].author %></h3>
+                    <p> <%= comments[j].content %></p>
                 </div>
+                    <% } else { %>
+                        <p><%= message %></p>
+                        <% } } %>
             </div>
             <div class="tools-article">
                 <box-icon type='solid' name='comment' color="whitesmoke" class="comment-section"></box-icon>
