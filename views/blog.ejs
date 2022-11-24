@@ -7,7 +7,7 @@
         <div class="article">
             <div class="article-content">
             <h2><%= articles[i].title %></h2>
-            <h3>Autor: <%= username %></h3>
+            <h3>Autor: <%= user[articles[i].user_id-1].username %></h3>
             <p><%= articles[i].content %></p>
             </div>
                 <div class="tools-article">
