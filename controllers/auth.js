@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const dotenv = require("dotenv").config();
 const db = require("../db-config");
 const bcrypt = require("bcryptjs");
 
@@ -53,8 +54,20 @@ const register = async (req, res) => {
     }
 }
 
+const blogComments = (req, res) => {
+    const author = req.body.author;
+    const content = req.body.content;
+    const postId = req.body.postid;
+    db.query('INSERT INTO coments SET ?', {post_id:postId, author:author, content:content}, (err, results) => {
+        if(err) throw err;
+        return res.redirect('back');
+    })
+}   
+
+
 module.exports = {
     login: login,
     logout: logout,
     register: register,
+    blogComments: blogComments,
 }

@@ -2,15 +2,11 @@ const db = require("../db-config");
 const e = require("express");
 
 const blogComments = (req, res) => {
-
-    db.query("SELECT * FROM coments WHERE post_id = ?", (err, comments) => {
-        if(err) throw err;
-        if(!comments.length){ 
-            res.send('blog', { message: "No comments!" })
-        }
-        else {                   
-            res.send('blog', { comments, message: "Doua articole disponibile!", user, articles})
-        }
+    const author = req.body.author;
+    const content = req.body.content;
+    const postId = req.body.comment;
+    db.query('INSERT INTO coments SET ?', {author:author, content:content, post_id:postId}, (req, res) => {
+        return res.json({status: "success", message: "User has been registred"});
     })
 }   
 

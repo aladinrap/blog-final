@@ -17,7 +17,7 @@ const blogPosts = (req, res) => {
                         res.render('blog', { title: 'URZI-BLOG', layout: './layouts/home', user, articles, comments})
                     }
                     else {                   
-                        res.render('blog', { title: 'URZI-BLOG', layout: './layouts/home', message: "No comments!", user, articles, comments})
+                        res.render('blog', { title: 'URZI-BLOG', layout: './layouts/home', user, articles, comments})
                     }
                 })              
             })
