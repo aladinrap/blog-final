@@ -1,0 +1,35 @@
+<div class="all-article-container">
+    <h1>Articolele tale:</h1>
+    <div class="my-articles-container">
+        <% for(var i=0; i < articles.length; i++) {%>
+        <% if(articles[i].user_id == user.id) { %>
+        <div class="post-container">
+            <div class="articles-admin-tools">
+                <button id="edit-button"><a href="/admin/posts/edit/<%=articles[i].id%>">Edit</a></button>
+                <button id="delete-button"><a href="/admin/posts/delete/<%=articles[i].id%>">Delete</a></button>
+            </div>
+            <h4><%= articles[i].title.substring(0, 30) %></h4>
+            <p> <%= articles[i].content.substring(0, 50) %>... </p>
+            <button class="check-comments-button"><a href="/admin/posts/<%=articles[i].id%>/comments">Check comments</a></button>
+        </div>
+        <% } }%>
+    </div>
+    <h1>Celelalte articole:</h1>
+    <div class="other-articles-container">
+        <% for(var i=0; i < articles.length; i++) {%>
+            <% if(articles[i].user_id != user.id) { %>
+        <div class="post-container">
+            <div class="articles-admin-tools">
+                <button id="edit-button"><a href="/admin/posts/edit/<%=articles[i].id%>">Edit</a></button>
+                <button id="delete-button"><a href="/admin/posts/delete/<%=articles[i].id%>">Delete</a></button>
+            </div>
+            <h4><%= articles[i].title.substring(0, 30) %></h4>           
+            <p> <%= articles[i].content.substring(0, 50) %>... </p>
+            <p> PUBLICAT DE:</p>
+            <p><%= users[articles[i].user_id-1].username %></p>
+            <button class="check-comments-button"><a href="/admin/posts/<%=articles[i].id%>/comments">Check comments</a></button>
+        </div>
+        <% } } %>
+    </div>
+    <button class="go-home-button"> <a style="border: none; background: none; color: whitesmoke;" href="/admin/posts/create">Create a new post!</a></button>
+</div>

@@ -1,5 +1,6 @@
-const db = require("../routes/db-config")
-const jwt = require("jsonwebtoken")
+const db = require("../db-config");
+const jwt = require("jsonwebtoken");
+
 const loggedIn = (req, res, next) => {
     if(!req.cookies.userRegistred) return next();
     try{

@@ -21,7 +21,7 @@ const login = async(req, res) => {
             http0nly: true //security standard thing
             }
             res.cookie("userRegistred", token, cookieOptions); // set userRegistered cookie
-            return res.json({status: "ok", message: "User has been logged In"}) //return res.json with status success and message + cookie
+            return res.redirect('/admin'); //return res.json with status success and message + cookie
             }
         })
     }
@@ -47,7 +47,7 @@ const register = async (req, res) => {
                 console.log(password);
                 db.query('INSERT INTO users SET ?', {email:email, password:password, username:username}, (error, results) => {
                     if(error) throw error;
-                    return res.json({status: "success", message: "User has been registred"})
+                    return res.redirect('/admin');
                 })
             }
         })
@@ -65,9 +65,86 @@ const blogComments = (req, res) => {
 }   
 
 
+const newpost = (req, res) => {
+    const title = req.body.title;
+    const content = req.body.content;
+    const userid = req.body.userid;
+    db.query('INSERT INTO posts SET ?', {user_id:userid, title:title, content:content}, (err, results) => {
+        if(err) throw err;
+        return res.redirect('/admin/posts');
+    })
+}
+
+const deletepost = (req,res) => {
+    const postid = req.params.postId;
+    console.log(postid);
+    db.query('DELETE FROM coments WHERE post_id = ?', [postid], (err, result) => {
+        if(err) throw err;
+        db.query('DELETE FROM posts WHERE id = ?', [postid], (err,result) => {
+            if(err) throw err;
+            return res.redirect('/admin/posts');
+        })    
+    })
+}
+
+const editpost = (req, res) => {
+    const title = req.body.title;
+    const content = req.body.content;
+    const postid = req.body.postid;
+    db.query('UPDATE posts SET ? WHERE id = ?',[{title:title, content:content}, postid], (err, result) => {
+        if(err) throw err;
+        return res.redirect('/admin/posts');
+    })
+}
+
+const editcomments = (req, res) => {
+    const author = req.body.author;
+    const content = req.body.content;
+    const postId = req.body.postid;
+    const commentsid = req.body.commentsid;
+    db.query('UPDATE coments SET ? WHERE id = ?',[{author:author, content:content}, commentsid], (err, result) => {
+        if(err) throw err;
+        return res.redirect(`/admin/posts/${postId}/comments`);
+    })
+}
+
+const usersedit = (req, res) => {
+    const username = req.body.username;
+    const email = req.body.email;
+    const userid = req.body.userid;
+    db.query('UPDATE users SET ? WHERE id = ?',[{username:username, email:email}, userid], (err, result) => {
+        if(err) throw err;
+        return res.redirect(`/admin/users`);
+    })
+}
+const usersdelete = (req,res) => {
+    const userId = req.params.userId;
+    db.query('SELECT * FROM posts WHERE user_id = ?', [userId], (err, postResult) => {
+        if(err) throw err;
+        for(var i = 0; i<postResult.length; i++) {
+            db.query('DELETE FROM coments WHERE post_id = ?', [postResult[i].id], (err, Result) => {
+                if(err) throw err;
+            }) 
+        }   
+        db.query('DELETE FROM posts WHERE user_id = ?', [userId], (err, Result) => {
+                if(err) throw err;
+                db.query('DELETE FROM users WHERE id = ?', [userId], (err, Results) => {
+                    if(err) throw err;
+                    return res.redirect(`/admin/users`);
+                    }) 
+                })  
+    })
+}
+
 module.exports = {
     login: login,
     logout: logout,
     register: register,
     blogComments: blogComments,
+    newpost: newpost,
+    deletepost: deletepost,
+    editpost: editpost,
+    editcomments: editcomments,
+    usersedit: usersedit,
+    usersdelete: usersdelete,
 }

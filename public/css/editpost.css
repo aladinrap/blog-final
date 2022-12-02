@@ -1,0 +1,144 @@
+.all-article-container{
+    color: black;
+    width: 100%;
+    margin-left: 1%;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.my-articles-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.other-articles-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.post-container{
+    background-color: rgba(200,200,200,0.5);
+    font-size: 1.2rem;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 10px;
+    min-height: 200px;
+    width: 250px;
+}
+
+.check-comments-button{
+    font-size: 0.7rem;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.delete-post-container form{
+    background: none;
+}
+.delete-post-container{
+    background-color: rgba(200,200,200,0.5);
+    font-size: 1.2rem;
+    margin: 0.5rem 0.5rem 0.5rem 0.5rem;
+    padding: 1rem;
+    min-width: 250px;
+    color: #222;
+    width: 100%;
+}
+.delete-article-admin-tools a{
+    background: none;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 1.5rem;
+    margin: auto;
+    cursor: pointer;
+}
+.delete-article-admin-tools{
+    background: none;
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    margin: auto;
+    flex-wrap: wrap;
+    
+}
+.delete-article-admin-tools button{
+    font-size: 1.5rem;
+    padding: 10px;
+    border-radius: 10px;
+    align-items: center;
+    margin: auto;
+    cursor: pointer;
+}
+
+.delete-post-container h4{
+    background: none;
+    margin: 1rem 1rem 1rem 1rem;
+}
+
+.delete-post-container p{
+    background: none;
+    margin: 1rem 1rem 1rem 1rem;
+}
+
+.post-container h4{
+    background: none;
+}
+
+.post-container p{
+    margin-top: 1rem;
+    background: none;
+}
+.articles-admin-tools{
+    background: none;
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    margin: auto;
+}
+.articles-admin-tools button{
+    font-size: 0.7rem;
+    padding: 10px;
+    border-radius: 10px;
+    width: 5rem;
+    align-items: center;
+    margin-left: 0.3rem;
+    margin-bottom: 0.6rem;
+    
+}
+.articles-admin-tools button:hover{
+    cursor: pointer;
+}
+#edit-button{
+    background-color: whitesmoke;
+}
+#delete-button{
+    background-color: whitesmoke;
+}
+
+.edit-post-container{
+    min-width: 50%;
+    margin: auto;
+}
+.edit-article-admin-tools{
+    margin: auto;
+    font-size: 1.2rem;
+    padding: 1rem;
+    color: #222;
+    }
+    .edit-article-admin-tools button{
+        margin: auto;
+        }
+        .edit-article-admin-tools a{
+            background: none;
+            border: 1px solid black;
+            padding: 10px;
+            border-radius: 10px;
+            font-size: 1.5rem;
+            margin: auto;
+            width: 100%;
+            cursor: pointer;
+        }

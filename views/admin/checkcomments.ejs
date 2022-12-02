@@ -1,0 +1,19 @@
+<div class="article-container">
+    <div class="article">
+        <h3><%=post.title%></h3>
+        <p><%=post.content%></p>
+    </div>
+    <% for(var i=0; i < comments.length; i++) {%>
+    <div class="comments">
+            <h4><%= comments[i].author %></h4>    
+            <h4><%= comments[i].content %></h4>
+            <div class="tools-article">
+                <button id="edit-button"><a href="/admin/posts/<%=post.id%>/comments/edit/<%=comments[i].id%>">Edit</a></button>
+                <button id="delete-button"><a href="/admin/posts/<%=post.id%>/comments/delete/<%=comments[i].id%>">Delete</a></button>
+            </div>
+    </div>
+    <% } %>
+    <div class="edit-article-admin-tools">
+        <a href="/admin/posts/">GO back</a>
+        </div>
+</div>

@@ -7,7 +7,10 @@
         <div class="article">
             <div class="article-content">
                 <h2><%= articles[i].title %></h2>
-                <h3>Author: <%= user[articles[i].user_id-1].username %></h3>
+                <% for(var j=0; j < users.length; j++) {%>
+                <% if(articles[i].user_id == users[j].id) { %>
+                <h3>Author: <%= users[j].username %></h3>
+                    <% } } %>
                 <p><%= articles[i].content %></p>
             </div>
             <div class="comment-container">

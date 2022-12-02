@@ -1,0 +1,14 @@
+
+<div class="edit-post-container">
+    <form action="/admin/posts/edit/<%=post.id%>" method="POST">
+        <h2 class="create-article">Modifica titlul:</h2>
+        <input type="text" name="title" required autocomplete="off" id="comment-author" value="<%=post.title%>">
+        <h2 class="create-article">Modifica continutul articolului:</h2>
+        <input type="text" name="content" required autocomplete="off" id="comment-input" value="<%=post.content%>">
+        <div class="edit-article-admin-tools">
+        <button type="submit" class="go-home-button">Submit!</button>
+        <a href="/admin/posts/">GO back</a>
+        </div>
+        <input type="hidden" name="postid" value="<%= post.id %>" required>
+    </form>    
+</div>

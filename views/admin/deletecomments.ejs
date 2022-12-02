@@ -1,0 +1,12 @@
+<div class="delete-post-container">
+    <form action="/admin/posts/edit/<%=post.id%>/comments/edit/<%=comments.id%>" method="POST">
+    <h4><%= comments.author %></h4>
+    <p> <%= comments.content %></p>
+    <input type="hidden" name="postid" value="<%=post.id%>"required>
+    <input type="hidden" name="commentsid" value="<%= comments.id %>" required>
+    <div class="delete-article-admin-tools">
+        <a href="/admin/posts/<%=post.id%>/comments">GO back</a>
+        <button id="delete-button" type="submit">DELETE</button>
+    </div>
+    </form>
+</div>

@@ -1,0 +1,49 @@
+.article h3{
+    background: none;
+    color: #222;
+}
+.article h4{
+    background: none;
+    color: #222;
+}
+.article p{
+    background: none;
+    color: #222;
+}
+.comments h3{
+    background: none;
+    color: #222;
+}
+.comments h4{
+    background: none;
+    color: #222;
+}
+.comments p{
+    background: none;
+    color: #222;
+}
+.comments{
+    background: rgba(200,200,200,0.4);
+    padding: 1rem;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 0.5rem;
+}
+
+.article-container{
+    max-width: 50%;
+    height: auto;
+    margin: auto;
+    margin-top: 1rem;
+}
+.tools-article{
+    background: none;
+}
+.tools-article button{
+    font-size: 0.7rem;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 0.5rem;
+}

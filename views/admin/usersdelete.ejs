@@ -1,0 +1,11 @@
+<div class="delete-post-container">
+    <form action="/admin/users/delete/<%=users.id%>" method="POST">
+    <h4><%= users.username %></h4>
+    <p> <%= users.email %></p>
+    <input type="hidden" name="userid" value="<%=user.id%>" required>
+    <div class="delete-article-admin-tools">
+        <a href="/admin/users/">GO back</a>
+        <button id="delete-button" type="submit">DELETE</button>
+    </div>
+    </form>
+</div>
