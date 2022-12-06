@@ -1,3 +1,9 @@
+.p{
+    background: none;
+    font-size: 1.8rem;
+    width: 97%;
+    margin: auto;
+}
 .articles-container{
 margin-left: 10%;
 margin-right: 10%;
@@ -10,7 +16,26 @@ margin-right: 10%;
     flex-direction: column;
     margin-top: 2rem;
 }
-
+.body-article-container{
+    width: 90%;
+    margin: auto;
+    margin-top: 1rem;
+    background: rgba(200,200,200,0.4);
+}
+.author-container{
+    background: rgba(200,200,200,0.2);
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+}
+.content-container{
+    background: rgba(200,200,200,0.4);
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
+    margin-top: 2rem;
+    padding: 1rem;
+}
 .tools-article{
     display: flex;
     flex-direction: row-reverse;

@@ -15,6 +15,10 @@ router.get("/admin/users/create", (req,res) => {
 router.get("/admin/login", (req,res) => {
     res.render('./admin/login', { title: 'Login URZISOFT', layout: './layouts/home' })
 })
+router.get("/blog/search", (req,res) => {
+    res.render('search', { title: 'Login URZISOFT', layout: './layouts/home' })
+})
+
 router.get("/admin", admin.panel, loggedIn);
 
 router.get("/admin/users", admin.users);
@@ -31,13 +35,15 @@ router.get("/admin/posts/:postId/comments/delete/:commentsId", admin.deletecomme
 
 
 
-router.get("/blog", blog.seeposts);
+router.get("/blog", blog.posts);
+router.get("/blog/post/:postId", blog.checkpost);
 
 
 router.post("/login", auth.login);
 router.get("/logout", auth.logout);
 router.post("/users/create", auth.register);
 router.post("/blog", auth.blogComments);
+router.post("/blog/search", auth.searchbar);
 
 router.post("/admin/posts/create", auth.newpost);
 router.post("/admin/posts/delete/:postId", auth.deletepost);

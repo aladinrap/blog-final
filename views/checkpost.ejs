@@ -1,0 +1,33 @@
+<div class="body-article-container">
+
+    <div class="content-container">
+        <h1><%=post.title%></h1>
+        <h3><%-post.content%></h3>
+        
+        <h4 style="font-size: 1.8rem; border-top: 1px solid black;">Author: <%=user.username%></h4>
+        <h4 style="font-size: 1.8rem;">Contact: <%=user.email%></h4>
+    </div>
+
+    
+
+    <div class="comment-container" style="display: block;">
+        <div class="comment-header">
+            <h2>Comments:</h2>
+            <button class="add-comment">ADD COMMENT</button>
+            <form class="add-comment-section" id="form-add-comment" action="/blog" method="POST">
+                <input type="text" placeholder="Your name" name="author" id="comment-author" autocomplete="off" required >
+                <input type="text" placeholder="Your comment!" name="content" id="comment-input" autocomplete="off" required>
+                <input type="hidden" value=" <%= post.id %>" name="postid">
+                <button type="submit" id="submit-button">Submit!</button>
+            </form>
+        </div>
+        <% for(var j=0; j < comments.length; j++) {%>
+            <% if( comments[j].post_id == post.id ) {%>
+        <div class="comment-content">
+            <h3>Author: <%= comments[j].author %></h3>
+            <p> <%= comments[j].content %></p>
+        </div>
+            <% } else { %>
+                <% } } %>
+    </div>
+</div>

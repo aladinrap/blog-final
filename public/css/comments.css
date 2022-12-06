@@ -47,3 +47,11 @@
     cursor: pointer;
     margin-left: 0.5rem;
 }
+.delete-post-container{
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+}
+.delete-post-container a{
+    background-color: whitesmoke;
+}

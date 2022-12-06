@@ -16,5 +16,12 @@
 <body>
     <%- include('../partials/adminMenu.ejs') %>
     <%- body %>
+    <script src="https://cdn.tiny.cloud/1/7bc6cepa880nfgbf3mr4n2zevn23092i7nt5t06vh2r6k5zj/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+     <script>
+       tinymce.init({
+         selector: '#wysiwyg',
+                  toolbar: 'blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+       });
+     </script>
 </body>
 </html>

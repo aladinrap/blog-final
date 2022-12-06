@@ -6,12 +6,12 @@
         <% for(var i=0; i < articles.length; i++) {%>
         <div class="article">
             <div class="article-content">
-                <h2><%= articles[i].title %></h2>
+                <h2><a href="/blog/post/<%=articles[i].id%>" style="font-size: 2.5rem;"><%= articles[i].title %></a></h2>
                 <% for(var j=0; j < users.length; j++) {%>
                 <% if(articles[i].user_id == users[j].id) { %>
                 <h3>Author: <%= users[j].username %></h3>
                     <% } } %>
-                <p><%= articles[i].content %></p>
+                <div class="p"><%- articles[i].content %></div>
             </div>
             <div class="comment-container">
                 <div class="comment-header">

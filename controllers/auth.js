@@ -135,6 +135,13 @@ const usersdelete = (req,res) => {
                 })  
     })
 }
+const searchbar = (req,res) => {
+    const search = req.body.searchinput;
+    db.query('SELECT * FROM posts', (err, articles) => {
+        if(err) throw err;
+            res.render('startsearch', { title: 'Login URZISOFT', layout: './layouts/home', message: "Acestea sunt articolele gasite:", articles, search:search});
+    })
+}
 
 module.exports = {
     login: login,
@@ -147,4 +154,5 @@ module.exports = {
     editcomments: editcomments,
     usersedit: usersedit,
     usersdelete: usersdelete,
+    searchbar: searchbar,
 }

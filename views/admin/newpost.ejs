@@ -5,9 +5,9 @@
         <h2 class="create-article">Introdu titlul articolului:</h2>
         <input type="text" name="title" required autocomplete="off" placeholder="Titlu" id="comment-author">
         <h2 class="create-article">Introdu continutul articolului:</h2>
-        <input type="text" name="content" required autocomplete="off" placeholder="Titlu" id="comment-input">
-        <button type="submit" class="go-home-button">Submit!</button>
+        <input type="text" name="content" autocomplete="off" id="wysiwyg">
         <input type="hidden" name="userid" value="<%= user.id %>" required>
+        <button type="submit" class="go-home-button">Submit!</button>
     
     </form>    
 </div>
