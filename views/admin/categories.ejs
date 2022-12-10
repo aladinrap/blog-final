@@ -1,0 +1,12 @@
+<div class="article-container">
+    <% for(var i=0; i < category.length; i++) {%>
+    <div class="comments">
+            <h4><%= category[i].name %></h4>    
+            <div class="tools-article">
+                <button id="edit-button"><a href="/admin/categories/edit/<%=category[i].id%>">Edit</a></button>
+                <button id="delete-button"><a href="/admin/categories/delete/<%=category[i].id%>">Delete</a></button>
+            </div>
+    </div>
+    <% } %>
+        <button class="go-home-button" style="width: 100%;"> <a style="border: none; background: none; color: whitesmoke;" href="/admin/categories/create">Create a new category!</a></button>
+</div>

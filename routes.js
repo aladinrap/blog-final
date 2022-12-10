@@ -7,19 +7,24 @@ const router = express.Router();
 const auth = require("./controllers/auth");
 
 router.get("/", (req, res) => {
-    res.render('index', { title: 'Homepage URZISOFT', layout: './layouts/home' })
+    res.render('index', { title: 'URZISOFT', layout: './layouts/home' })
 })
 router.get("/admin/users/create", (req,res) => {
-    res.render('./admin/register', { title: 'REGISTER URZISOFT', layout: './layouts/home' })
+    res.render('./admin/register', { title: 'URZISOFT', layout: './layouts/home' })
 })
 router.get("/admin/login", (req,res) => {
-    res.render('./admin/login', { title: 'Login URZISOFT', layout: './layouts/home' })
+    res.render('./admin/login', { title: 'URZISOFT', layout: './layouts/home' })
 })
 router.get("/blog/search", (req,res) => {
-    res.render('search', { title: 'Login URZISOFT', layout: './layouts/home' })
+    res.render('search', { title: 'URZISOFT', layout: './layouts/home' })
 })
 
 router.get("/admin", admin.panel, loggedIn);
+
+router.get("/admin/categories", admin.categories);
+router.get("/admin/categories/delete/:categoryId", admin.deletecategory);
+router.get("/admin/categories/create", admin.createcategory);
+router.get("/admin/categories/edit/:categoryId", admin.editcategory);
 
 router.get("/admin/users", admin.users);
 router.get("/admin/users/edit/:usersId", admin.usersedit);
@@ -38,6 +43,10 @@ router.get("/admin/posts/:postId/comments/delete/:commentsId", admin.deletecomme
 router.get("/blog", blog.posts);
 router.get("/blog/post/:postId", blog.checkpost);
 
+
+router.post("/admin/category/create", auth.createcategory);
+router.post("/admin/categories/edit/:categoryId", auth.editcategory);
+router.post("/admin/categories/delete/:categoryId", auth.deletecategory);
 
 router.post("/login", auth.login);
 router.get("/logout", auth.logout);

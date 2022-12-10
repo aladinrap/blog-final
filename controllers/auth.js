@@ -65,6 +65,14 @@ const blogComments = (req, res) => {
 }   
 
 
+const createcategory = (req, res) => {
+    const name = req.body.category;
+    db.query('INSERT INTO categories SET ?', {name:name}, (err, results) => {
+        if(err) throw err;
+        return res.redirect('/admin/categories');
+    })
+}
+
 const newpost = (req, res) => {
     const title = req.body.title;
     const content = req.body.content;
@@ -91,7 +99,9 @@ const editpost = (req, res) => {
     const title = req.body.title;
     const content = req.body.content;
     const postid = req.body.postid;
-    db.query('UPDATE posts SET ? WHERE id = ?',[{title:title, content:content}, postid], (err, result) => {
+    const categoryid = req.body.categoryid;
+    console.log(categoryid);
+    db.query('UPDATE posts SET ? WHERE id = ?',[{title:title, content:content, category:categoryid}, postid], (err, result) => {
         if(err) throw err;
         return res.redirect('/admin/posts');
     })
@@ -105,6 +115,26 @@ const editcomments = (req, res) => {
     db.query('UPDATE coments SET ? WHERE id = ?',[{author:author, content:content}, commentsid], (err, result) => {
         if(err) throw err;
         return res.redirect(`/admin/posts/${postId}/comments`);
+    })
+}
+
+const deletecategory = (req,res) => {
+    const categoryId = req.params.categoryId;
+    db.query('UPDATE posts SET category = NULL WHERE category = ?', [categoryId], (err, result) => {
+        if(err) throw err;
+        db.query('DELETE FROM categories WHERE id = ?', [categoryId], (err,result) => {
+            if(err) throw err;
+            return res.redirect('/admin/categories');
+        }) 
+    })
+}
+
+const editcategory = (req, res) => {
+    const name = req.body.name;
+    const categoryId = req.params.categoryId;
+    db.query('UPDATE categories SET ? WHERE id = ?',[{name:name}, categoryId], (err, result) => {
+        if(err) throw err;
+        return res.redirect('/admin/categories');
     })
 }
 
@@ -155,4 +185,7 @@ module.exports = {
     usersedit: usersedit,
     usersdelete: usersdelete,
     searchbar: searchbar,
+    createcategory: createcategory,
+    editcategory: editcategory,
+    deletecategory: deletecategory,
 }

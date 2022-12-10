@@ -1,0 +1,11 @@
+
+<div class="newpost-container">
+    <form action="/admin/categories/edit/<%=category.id%>" method="POST">
+
+        <h2 class="create-article">Schimba numele categoriei:</h2>
+        <input type="text" name="name" required autocomplete="off" value="<%=category.name%>" id="comment-author">
+        <input type="hidden" name="categoryid" required>
+        <button type="submit" class="go-home-button">Submit!</button>
+    
+    </form>    
+</div>

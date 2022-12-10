@@ -10,7 +10,43 @@ const panel = (req, res) => {
         db.query('SELECT * FROM users WHERE id=?', [decoded.id], (err, result) => {
             if(err) return next();
             req.user = result[0];
-            return res.render('./admin/index', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user});
+                    return res.render('./admin/index', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user});
+        })
+        } catch(err) {
+        if(err) throw err;
+    }
+}
+
+const createcategory = (req, res) => {
+
+    if(!req.cookies.userRegistred) return res.redirect('/admin/login');
+    try{
+        const decoded = jwt.verify(req.cookies.userRegistred, process.env.JWT_SECRET)
+        db.query('SELECT * FROM users WHERE id=?', [decoded.id], (err, result) => {
+            if(err) return next();
+            req.user = result[0];
+                    return res.render('./admin/createcategory', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user});
+        })
+        } catch(err) {
+        if(err) throw err;
+    }
+}
+
+const categories = (req, res) => {
+
+    if(!req.cookies.userRegistred) return res.redirect('/admin/login');
+    try{
+        const decoded = jwt.verify(req.cookies.userRegistred, process.env.JWT_SECRET)
+        db.query('SELECT * FROM users WHERE id=?', [decoded.id], (err, result) => {
+            if(err) return next();
+            req.user = result[0];
+            db.query("SELECT * FROM categories", (err, category) => {
+                if(err) throw err;                
+                db.query("SELECT * FROM posts", (err, articles) => {
+                    if(err) throw err;
+                    return res.render('./admin/categories', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, category, articles});
+            })
+            })
         })
         } catch(err) {
         if(err) throw err;
@@ -26,7 +62,7 @@ const users = (req, res) => {
             if(err) return next();
             req.user = result[0];
             db.query('SELECT * FROM users', (err, users) => {
-                return res.render('./admin/users', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, users});
+                return res.render('./admin/users', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, users});
             })
         })
         } catch(err) {
@@ -53,7 +89,7 @@ const usersedit = (req, res) => {
                     email: usersResult[0].email,
                     id: usersResult[0].id
                 }
-            return res.render('./admin/usersedit', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, users});
+            return res.render('./admin/usersedit', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, users});
             })
         })
         } catch(err) {
@@ -79,9 +115,36 @@ const usersdelete = (req, res) => {
                     email: usersResult[0].email,
                     id: usersResult[0].id
                 }
-            return res.render('./admin/usersdelete', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, users});
+            return res.render('./admin/usersdelete', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, users});
             })
         })
+        } catch(err) {
+        if(err) throw err;
+    }
+}
+
+const deletecategory = (req, res) => {
+
+    const categoryId = req.params.categoryId;
+
+    if(!categoryId) return res.redirect("./admin/category");
+
+
+    if(!req.cookies.userRegistred) return res.redirect('/admin/login');
+    try{
+        const decoded = jwt.verify(req.cookies.userRegistred, process.env.JWT_SECRET)
+        db.query('SELECT * FROM users WHERE id=?', [decoded.id], (err, result) => {
+            if(err) return next();
+            req.user = result[0];
+            db.query("SELECT * FROM categories WHERE id = ?", [categoryId], (err, categoryResult) => {
+                if(err) throw err;
+                let category = {
+                    name: categoryResult[0].name,
+                    id: categoryResult[0].id,
+                }
+                return res.render('./admin/deletecategory', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, category});
+        })
+            })
         } catch(err) {
         if(err) throw err;
     }
@@ -99,8 +162,11 @@ const checkposts = (req, res) => {
                 if(err) throw err;
                     db.query("SELECT * FROM users", (err, users) => {
                     if(err) throw err;
-                    return res.render('./admin/checkposts', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, articles, users});
+                    db.query("SELECT * FROM categories", (err, category) => {
+                        if(err) throw err;
+                        return res.render('./admin/checkposts', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, articles, users, category});
                     })
+                })
             })
         })
         } catch(err) {
@@ -116,7 +182,7 @@ const newpost = (req, res) => {
         db.query('SELECT * FROM users WHERE id=?', [decoded.id], (err, result) => {
             if(err) return next();
             req.user = result[0];
-            return res.render('./admin/newpost', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user});
+            return res.render('./admin/newpost', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user});
         })
         } catch(err) {
         if(err) throw err;
@@ -142,7 +208,34 @@ const deletepost = (req, res) => {
                     content: postResult[0].content,
                     id: postResult[0].id
                 }
-            return res.render('./admin/deletepost', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, post});
+            return res.render('./admin/deletepost', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, post});
+            })
+        })
+        } catch(err) {
+        if(err) throw err;
+    }
+}
+
+const editcategory = (req, res) => {
+
+    const categoryId = req.params.categoryId;
+
+    if(!categoryId) return res.redirect("./admin/categories");
+
+
+    if(!req.cookies.userRegistred) return res.redirect('/admin/login');
+    try{
+        const decoded = jwt.verify(req.cookies.userRegistred, process.env.JWT_SECRET)
+        db.query('SELECT * FROM users WHERE id=?', [decoded.id], (err, result) => {
+            if(err) return next();
+            req.user = result[0];
+                db.query("SELECT * FROM categories WHERE id = ?", [categoryId], (err, categoryResult) => {
+                    if(err) throw err;
+                    let category = {
+                        name: categoryResult[0].name,
+                        id: categoryResult[0].id,
+                    }
+                    return res.render('./admin/editcategory', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, category});
             })
         })
         } catch(err) {
@@ -169,7 +262,10 @@ const editpost = (req, res) => {
                     content: postResult[0].content,
                     id: postResult[0].id
                 }
-            return res.render('./admin/editpost', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, post});
+                db.query("SELECT * FROM categories", (err, category) => {
+                    if(err) throw err;
+                    return res.render('./admin/editpost', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, post, category});
+                })
             })
         })
         } catch(err) {
@@ -197,7 +293,7 @@ const comments = (req, res) => {
                     id: postResult[0].id
                 }
             db.query('SELECT * FROM coments WHERE post_id = ?', [postId], (err, comments) => {
-            return res.render('./admin/checkcomments', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, comments, post});
+            return res.render('./admin/checkcomments', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, comments, post});
                 })
             })
         })
@@ -233,7 +329,7 @@ const editcomments = (req, res) => {
                     content: commentsResult[0].content,
                     id: commentsResult[0].id
                 }
-            return res.render('./admin/editcomments', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, comments, post});
+            return res.render('./admin/editcomments', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, comments, post});
                 })
             })
         })
@@ -271,7 +367,7 @@ const deletecomments = (req, res) => {
                     content: commentsResult[0].content,
                     id: commentsResult[0].id
                 }
-            return res.render('./admin/deletecomments', { title: 'Login URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, comments, post});
+            return res.render('./admin/deletecomments', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, comments, post});
                 })
             })
         })
@@ -293,4 +389,8 @@ module.exports = {
     users: users,
     usersedit: usersedit,
     usersdelete:usersdelete,
+    categories: categories,
+    createcategory: createcategory,
+    editcategory: editcategory,
+    deletecategory: deletecategory,
 };

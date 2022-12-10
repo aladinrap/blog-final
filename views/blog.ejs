@@ -11,7 +11,11 @@
                 <% if(articles[i].user_id == users[j].id) { %>
                 <h3>Author: <%= users[j].username %></h3>
                     <% } } %>
-                <div class="p"><%- articles[i].content %></div>
+                    <% for(var j=0; j < category.length; j++) {%>
+                        <% if(articles[i].category == category[j].id) { %>
+                        <h3>Category: <%= category[j].name %></h3>
+                    <% } } %>      
+                <div class="p"><%- articles[i].content %></div>  
             </div>
             <div class="comment-container">
                 <div class="comment-header">

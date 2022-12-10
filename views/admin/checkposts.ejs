@@ -10,6 +10,10 @@
             </div>
             <h4><%= articles[i].title.substring(0, 30) %></h4>
             <p><%- articles[i].content.substring(0, 50) %>...</p>
+            <% for(var j=0; j < category.length; j++) {%>
+                <% if(articles[i].category == category[j].id) { %>
+                <p>Category: <%= category[j].name %></p>
+            <% } } %> 
             <button class="check-comments-button"><a href="/admin/posts/<%=articles[i].id%>/comments">Check comments</a></button>
         </div>
         <% } }%>
@@ -24,12 +28,18 @@
                 <button id="delete-button"><a href="/admin/posts/delete/<%=articles[i].id%>">Delete</a></button>
             </div>
             <h4><%= articles[i].title.substring(0, 30) %></h4>           
-            <p> <%= articles[i].content.substring(0, 50) %>... </p>
+            <p> <%- articles[i].content.substring(0, 50) %>... </p>
             <p> PUBLICAT DE:</p>
             <% for(var j=0; j < users.length; j++) {%>
                 <% if(articles[i].user_id == users[j].id) { %>
                 <p><%= users[j].username %></p>
                     <% } } %>
+                    <!--CATEGORIES-->
+                    <% for(var j=0; j < category.length; j++) {%>
+                        <% if(articles[i].category == category[j].id) { %>
+                        <p>Category: <%= category[j].name %></p>
+                    <% } } %>      
+
             <button class="check-comments-button"><a href="/admin/posts/<%=articles[i].id%>/comments">Check comments</a></button>
         </div>
         <% } } %>

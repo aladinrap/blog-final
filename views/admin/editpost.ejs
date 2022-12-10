@@ -5,6 +5,12 @@
         <input type="text" name="title" required autocomplete="off" id="comment-author" value="<%=post.title%>">
         <h2 class="create-article">Modifica continutul articolului:</h2>
         <input type="text" name="content" autocomplete="off" id="wysiwyg" value="<%=post.content%>">
+        <h2 class="create-article">Modifica categoria articolului:</h2>
+        <select name="categoryid" required style="font-size: 1.5rem; border-radius: 10px;">
+            <% for(var i=0; i < category.length; i++) {%>
+                <option value="<%=category[i].id%>"><%=category[i].name%></option> 
+            <% } %>    
+        </select>
         <div class="edit-article-admin-tools">
         <button type="submit" class="go-home-button">Submit!</button>
         <a href="/admin/posts/">GO back</a>
