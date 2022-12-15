@@ -2,7 +2,7 @@ const db = require("../db-config");
 const jwt = require("jsonwebtoken");
 
 const loggedIn = (req, res, next) => {
-    if(!req.cookies.userRegistred) return next();
+    if(!req.cookies.userRegistred) return res.redirect('/admin/login');
     try{
         const decoded = jwt.verify(req.cookies.userRegistred, process.env.JWT_SECRET)
         db.query('SELECT * FROM users WHERE id=?', [decoded.id], (err, result) => {

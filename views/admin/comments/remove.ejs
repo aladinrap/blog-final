@@ -1,5 +1,5 @@
 <div class="delete-post-container">
-    <form action="/admin/posts/edit/<%=post.id%>/comments/edit/<%=comments.id%>" method="POST">
+    <form action="/admin/posts/edit/<%=post.id%>/comments/delete/<%=comments.id%>" method="POST">
     <h4><%= comments.author %></h4>
     <p> <%= comments.content %></p>
     <input type="hidden" name="postid" value="<%=post.id%>"required>

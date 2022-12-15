@@ -11,11 +11,11 @@ const posts = (req, res) => {
         else {           
             db.query("SELECT * FROM users", (err, users) => {
                 if(err) throw err;
-                db.query("SELECT * FROM coments", (err, comments) => {
+                db.query("SELECT * FROM comments", (err, comments) => {
                     if(err) throw err;  
                     db.query("SELECT * FROM categories", (err, category) => {
                         if(err) throw err;                
-                        res.render('blog', { title: 'URZI-BLOG', layout: './layouts/home', users, articles, comments, category})
+                        res.render('./blog/index', { title: 'URZI-BLOG', layout: './layouts/home', users, articles, comments, category})
                     })    
                 })              
             })
@@ -44,18 +44,25 @@ const checkpost = (req, res) => {
                     email: userResult[0].email,
                     username: userResult[0].username
                 }
-                db.query("SELECT * FROM coments WHERE post_id = ?",  [postId], (err, comments) => {
+                db.query("SELECT * FROM comments WHERE post_id = ?",  [postId], (err, comments) => {
                     if(err) throw err;                  
-                        res.render('checkpost', { title: 'URZI-BLOG', layout: './layouts/home', user, post, comments})
+                        res.render('./blog/article', { title: 'URZI-BLOG', layout: './layouts/home', user, post, comments})
                 })              
             })
         })
     }
    
-
+    const find = (req,res) => {
+        const search = req.body.searchinput;
+        db.query('SELECT * FROM posts', (err, articles) => {
+            if(err) throw err;
+                res.render('./blog/find', { title: 'Login URZISOFT', layout: './layouts/home', message: "Acestea sunt articolele gasite:", articles, search:search});
+        })
+    }
 
 
 module.exports = {
 posts: posts,
 checkpost: checkpost,
+find: find,
 };

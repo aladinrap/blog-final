@@ -1,0 +1,11 @@
+<div class="loginContainer">
+    <form action="/admin/password/update" method="POST"> 
+        <h3>Introdu noua parola:</h3>
+        <input type="password" name="password" autocomplete="off" required>
+        <h3>Repeta noua parola:</h3>
+        <input type="password" name="repassword" autocomplete="off" required>
+        <input type="hidden" name="hashId" value="<%=hashId%>">
+        <input type="hidden" name="userId" value="<%=userId%>">
+    <button type="submit" class="submit-button">Set new password</button>
+    </form>
+</div>
