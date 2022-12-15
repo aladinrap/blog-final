@@ -1,5 +1,5 @@
 <div class="edit-post-container">
-    <form action="/admin/posts/edit/<%=post.id%>/comments/edit/<%=comments.id%>" method="POST">
+    <form action="/admin/posts/<%=post.id%>/comments/update/<%=comments.id%>" method="POST">
         <h2 class="create-article">Modifica autorul:</h2>
         <input type="text" name="author" required autocomplete="off" id="comment-author" value="<%= comments.author%>">
         <h2 class="create-article">Modifica continutul comentariului:</h2>

@@ -1,6 +1,7 @@
 const e = require("express");
 const db = require("../db-config");
 const jwt = require("jsonwebtoken");
+const bcrypt = require("bcryptjs");
 
 const index = (req, res) => {
     if(!req.user) return res.redirect("/admin/login");
