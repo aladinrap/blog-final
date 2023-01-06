@@ -5,16 +5,18 @@ const index = (req, res) => {
 
     const postId = req.params.postId;
 
-    if(!postId) return res.redirect("./admin/posts", {post: ""});
+    if(!postId) return res.redirect("./admin/posts");
     if(!req.user) return res.redirect("/admin/login");
     else {
             db.query('SELECT * FROM posts WHERE id = ?', [postId], (err, postResult) => {
+                if(err) throw err;
                 let post = {
                     title: postResult[0].title,
                     content: postResult[0].content,
                     id: postResult[0].id
                 }
             db.query('SELECT * FROM comments WHERE post_id = ?', [postId], (err, comments) => {
+                if(err) throw err;
             return res.render('./admin/comments/index', { title: 'URZISOFT', layout: './layouts/admin', status: "ok", user: req.user, comments, post});
                 })
             })

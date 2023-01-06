@@ -1,5 +1,6 @@
 const db = require("../db-config");
 const e = require("express");
+const dotenv = require("dotenv").config();
 
 const posts = (req, res) => {
 
@@ -14,14 +15,18 @@ const posts = (req, res) => {
                 db.query("SELECT * FROM comments", (err, comments) => {
                     if(err) throw err;  
                     db.query("SELECT * FROM categories", (err, category) => {
-                        if(err) throw err;                
-                        res.render('./blog/index', { title: 'URZI-BLOG', layout: './layouts/home', users, articles, comments, category})
+                        if(err) throw err;
+                        db.query("SELECT * FROM images", (err, images) => {
+                            if(err) throw err;                
+                            res.render('./blog/index', { title: 'URZI-BLOG', layout: './layouts/home', users, articles, comments, category, images})
+                        })
                     })    
                 })              
             })
         }
     })
 }
+
 
 
 

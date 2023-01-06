@@ -1,12 +1,56 @@
 /* Search BAR */
-.searchContainer{
-    margin-left: 27%;
-    padding-top: 15%;
-    max-width: 45%;
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,500&display=swap');
+
+
+
+.search-container{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-size: 2rem;
+    letter-spacing: -1px;
+    color: #1E0E62;
+    width: 45%;
+    margin: auto;
 }
-.searchContainer p{
-    max-width: 70%;
-    margin-left: 3%;
+.search-container p{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1.3rem;
+    line-height: 35px;
+    color: rgba(21, 20, 57, 0.4);
+    mix-blend-mode: normal;
+    opacity: 0.7;
+    width: 60%;
+    margin-top: 1rem;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+}
+.container a{
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #1E0E62;
+    margin-top: 8rem;
+
+}
+.container button{
+    color: #FFFFFF;
+    background: #E93A7D;
+    border-radius: 100px;
+    padding: 20px;
+    min-width: 170px;
+    margin-right: 50px;
+    border: none;
 }
 #searchBar{
     flex: 5;

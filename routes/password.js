@@ -3,7 +3,7 @@ const router = express.Router();
 const password = require("../controllers/password");
 
 router.get("/reset", (req,res) => {
-    res.render('./admin/password/request.ejs', { title: 'URZISOFT', layout: './layouts/home' })
+    res.render('./admin/password/request', { title: 'URZISOFT', layout: './layouts/home' })
 })
 router.get("/reset/:hashId", password.reset);
 

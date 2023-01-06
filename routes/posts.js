@@ -8,7 +8,7 @@ router.get("/create", loggedIn, posts.create);
 router.get("/delete/:postId", loggedIn, posts.remove);
 router.get("/edit/:postId", loggedIn, posts.edit);
 
-router.post("/create", posts.create);
+router.post("/create", posts.add);
 router.post("/delete/:postId", posts.Delete);
 router.post("/edit/:postId", posts.update);
 

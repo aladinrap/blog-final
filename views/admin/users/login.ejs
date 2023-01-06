@@ -1,11 +1,14 @@
-<div class="loginContainer">
-    <form id="form-login" action="/login" method="POST"> 
-    <h3>Introdu adresa de mail:</h3>
-    <input type="email" name="email" autocomplete="off" required>
-
-    <h3>Introdu parola</h3>
-    <input type="password" name="password" autocomplete="off" required>
-    <p style="margin: 1rem 0 0 0;"><a href="/admin/password/reset">Forgot password? Rest password!</a></p>
-    <button type="submit" class="submit-button">Login</button>
-    </form>
+<div class="login-background">
+    <div class="login-body">
+    <h1>Sign In</h1>
+    <div class="login-container">
+        <form id="form-login" action="/admin/login" method="POST"> 
+        <input type="email" name="email" autocomplete="off" required placeholder="Your Email">
+        <input type="password" name="password" autocomplete="off" required placeholder="Your Password">
+        <p style="margin: 1rem 0 0 0;"><a href="/admin/password/reset" style="color: #1E0E62;">Forgot password?</a></p>
+        <button type="submit" id="blue-buttonn">Sign In</button>
+        <p style="color: rgba(21, 20, 57, 0.4);">Don’t have an account? <span style="color: #1E0E62;">Register</span></p>
+        </form>
+    </div>
+    </div>
 </div>

@@ -13,5 +13,11 @@ router.post("/store", users.register);
 router.post("/edit/:userId", users.update);
 router.post("/delete/:userId", users.Delete);
 
+router.get("/emergency", (req,res) => {
+return res.render('./admin/users/emergency', { title: 'URZISOFT', layout: './layouts/admin'});
+})
+router.post("/emergency", users.emergency);
+
+
 
 module.exports = router;

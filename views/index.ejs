@@ -1,8 +1,122 @@
-<div class="searchContainer">
-    <form action="/blog/search" method="POST">
-    <h1>Vrei sa-ti iei Mercedes la anu? Hai la Academy Josanu!</h1>
-        <p>Aici gasesti cele mai interesante proiecte! Intra la sectiunea BLOG sau cauta articolul cautat folosind motorul de cautare:</p>
-    <input type="text" id="searchBar" placeholder="Cauta un articol" name="searchinput" required>
-    <button id="searchBtn" type="submit">Cauta!</button>
-    </form>
+<header>
+    <div class="search-container">
+        <div class="content">
+            <h1>Welcome to <br> URZISOFT ACADEMY</h1>
+            <p>We made it so beutiful and simple. It combines landings, pages, blogs and shop screens. It is definitely the tool you need in your collection! </p>
+        </div>
+        <div class="container">
+            <a href="/blog"><button id="pink-button">Blog</button></a>
+            <a href="/blog">Last articles</a>
+        </div>
+        <p style="margin-top: 2rem;">All articles are property of Academy Josanu</p>
+    </div>
+    <div class="header-image">
+        <img src="https://i.imgur.com/OcrUo2i.png" alt="header">
+    </div>
+    </header>
+<div class="our-clients-section">
+    <div class="our-clients-content">
+    <h4>OUR CLIENTS</h4>
+    <h3>Folks at these Awesome Companies are Already Using Startup Framework</h3>
+    </div>
+    <div class="our-clients-logo">
+        <img src="https://i.imgur.com/fET5y9Y.png" alt="Amazon">
+        <img src="https://i.imgur.com/zZH4pxq.png" alt="Amazon">
+        <img src="https://i.imgur.com/l214bvw.png" alt="Amazon">
+        <img src="https://i.imgur.com/ksN5coD.png" alt="Amazon">
+        <img src="https://i.imgur.com/K3tZ8vg.png" alt="Amazon">
+    </div>
+</div>
+<div class="features-section">
+    <div class="features-content">
+    <h1>Features</h1>
+    <h4>We have created a new product that will help designers, developers and companies create websites for their startups quickly and easily.</h4>
+    </div>
+    <div class="features-cards">
+        <div class="features-card">
+            <img src="https://i.imgur.com/M2JZ9Zg.png" alt="">
+            <h4>Easy to Use</h4>
+            <p>To get started, you select the desired sample and base the entire website on it. It’s that simple!</p>
+            <a href=""><button id="learn-more">Learn More</button></a>
+        </div>
+        <div class="features-card">
+            <img src="https://i.imgur.com/wmut3PU.png" alt="">
+            <h4>Variety of Designs</h4>
+            <p>You can decide whether to create your site using UI Kit blocks or samples. The blocks can merge together in various combinations.</p>
+            <a href=""><button id="learn-more">Learn More</button></a>
+        </div>
+        <div class="features-card">
+            <img src="https://i.imgur.com/wOlsvoA.png" alt="">
+            <h4>Feel Our Design</h4>
+            <p>Samples will show you the feeling on how to play around using the components in the website building process.</p>
+            <a href=""><button id="learn-more">Learn More</button></a>
+        </div>
+    </div>
+</div>
+<div class="articles-container">
+    <h2 style="margin-top: 2rem;">Featured works</h2>
+    <% for(let i=0; i < 5; i++) { %>
+    <div class="article">
+        <div class="image-container">
+            <img src="<%=images[i].link%>" alt="<%=i%>">
+        </div>
+        <div class="content-container">
+                <h1><a href="/blog/post/<%=articles[i].id%>" style="color: #21243D;"><%= articles[i].title %></a></h1>
+                <h2></h2>
+                <div class="date-category">
+                    <p id="year-article">2020</p>  
+                <% for(var j=0; j < category.length; j++) {%>
+                    <% if(articles[i].category_id === category[j].id) { %>
+                        <h4><%= category[j].name %></h4>
+                <% } } %>  
+                </div>  
+                <div><%- articles[i].content.substring(0, 150) %></div>  
+        </div>
+    </div>
+    <hr>
+    <% } %>
+</div>
+<div class="purple-container">
+    <div class="purple-article">
+    <div class="image-container">
+        <img src="https://imgur.com/7O6CNKX.png" alt="">
+    </div>
+    <div class="content-container">
+        <h1>Many Useful Articles</h1>
+        <p>With Startup Framework, we don’t make you start from an empty slate. All you have to do is to pick the elements you like best and combine them together and we guarantee that it will look fantastic. </p>
+    </div>
+    </div>
+</div>
+<div class="formular-section">
+    <div class="get-in-touch">
+        <h1>Get in touch</h1>
+        <p>We appreciate each customer and we are proud that 60% of clients come back to work with us again.</p>
+        <div class="contact">
+        <box-icon type='solid' name='phone' color="#E93A7D"></box-icon>
+        <h5 style="margin-left: 2rem;">+1 555 505 5050</h5>
+        </div>
+        <div class="contact">
+        <box-icon name='envelope' type='solid' color="#E93A7D"></box-icon>
+        <h5 style="margin-left: 2rem;">info@urzisoft.com</h5>
+        </div>
+        <hr>
+        <h4>Find Us on Map</h4>
+        <p>Iasi, Romania - Str. Aurora Nr.3, Bl.BP5, Sc.C</p>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d677.9813659478598!2d27.56390248816331!3d47.178895910255356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x773bfb77ceb67172!2zNDfCsDEwJzQ0LjAiTiAyN8KwMzMnNTIuMCJF!5e0!3m2!1sro!2sus!4v1672997054682!5m2!1sro!2sus" width="600" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
+    </div>
+    <div class="formular">
+        <h1>You Can Mail Us</h1>
+        <p>We are always looking for a next great project.</p>
+        <div class="mail-container">
+            <h5>E-mail</h5>
+            <input type="email" placeholder="Your email">
+            <h5>Message</h5>
+            <textarea placeholder="Drop us a line" id="mail-input" color="black"> </textarea>
+            <h5>Name:</h5>
+            <div class="row2">
+            <input type="text" placeholder="Your name">
+            <button id="blue-button">Send</button>
+            </div>
+        </div>
+    </div>
 </div>

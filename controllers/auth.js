@@ -6,11 +6,25 @@ const { users } = require("./admin");
 const generateHash = require("random-hash");
 const nodemailer= require("nodemailer");
 const { restart } = require("nodemon");
+const Joi = require("joi");
 
+
+const signupSchema = Joi.object({
+    email: Joi.string().email().required(),
+    password: Joi.string().min(3).max(10).required(),
+});
+   
 
 const login = async(req, res) => {
     const email = req.body.email;
     const password = req.body.password; 
+    const { error, value} = signupSchema.validate(req.body);
+    if(error) {
+        console.log(error);
+        res.redirect("back");
+    }
+    else{
+        console.log(value);
     if( !email || !password ) return res.json({status: "error", error:"Please Enter your email and password"}); // Input validation
     else {
         db.query('SELECT * FROM users WHERE email = ?', [email], async(Err, result) => { //Search user with entered email
@@ -29,8 +43,8 @@ const login = async(req, res) => {
             }
         })
     }
+  }
 }
-
 const logout = (req, res) => {
     res.clearCookie("userRegistred");
     res.redirect("/");

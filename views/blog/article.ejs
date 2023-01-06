@@ -1,33 +1,45 @@
-<div class="body-article-container">
 
-    <div class="content-container">
+<div class="post-container">
+    <div class="go-back">
+        <a href="/blog"><box-icon name='arrow-back' color="#FFFFFF"></box-icon><p>Go back</p>
+</a>
+    </div>
+    <div class="title-container">
         <h1><%=post.title%></h1>
-        <h3><%-post.content%></h3>
-        
-        <h4 style="font-size: 1.8rem; border-top: 1px solid black;">Author: <%=user.username%></h4>
-        <h4 style="font-size: 1.8rem;">Contact: <%=user.email%></h4>
+        <h5>14 January 2023</h5>
+        <p><%-post.content%></p>
+    </div>
+    <div class="contact-container">    
+        <p>Article by: <span style="color: #E93A7D;"><%=user.username%></span></p>
+        <div class="social-media">
+            <p style="margin: 0;">Share on</p>
+            <box-icon type='logo' name='twitter' color="#E93A7D"></box-icon>
+            <box-icon name='facebook-circle' type='logo' color="#E93A7D"></box-icon>
+            <box-icon name='google' type='logo' color="#E93A7D"></box-icon>
+        </div>
     </div>
 
     
 
     <div class="comment-container" style="display: block;">
-        <div class="comment-header">
-            <h2>Comments:</h2>
-            <button class="add-comment">ADD COMMENT</button>
-            <form class="add-comment-section" id="form-add-comment" action="/blog" method="POST">
-                <input type="text" placeholder="Your name" name="author" id="comment-author" autocomplete="off" required >
-                <input type="text" placeholder="Your comment!" name="content" id="comment-input" autocomplete="off" required>
-                <input type="hidden" value=" <%= post.id %>" name="postid">
-                <button type="submit" id="submit-button">Submit!</button>
-            </form>
-        </div>
+        <h2>Comments:</h2>
         <% for(var j=0; j < comments.length; j++) {%>
             <% if( comments[j].post_id == post.id ) {%>
         <div class="comment-content">
-            <h3>Author: <%= comments[j].author %></h3>
-            <p> <%= comments[j].content %></p>
+            <h3>Author: <span style="color: #E93A7D;"><%= comments[j].author %></span></h3>
+            <p style="margin-top: 1rem;"> <%= comments[j].content %></p>
+            <hr style="margin: 1rem 0 1rem 0;">
         </div>
             <% } else { %>
                 <% } } %>
+                <div class="comment-header">
+                    <button id="pink-button">Add Comment</button>
+                    <form class="add-comment-section" id="form-add-comment" action="/admin/posts/:postId/comments/blog" method="POST">
+                        <input type="text" placeholder="Your name" name="author" id="comment-author" autocomplete="off" required >
+                        <input type="text" placeholder="Your comment!" name="content" id="comment-input" autocomplete="off" required>
+                        <input type="hidden" value=" <%= post.id %>" name="postid">
+                        <button type="submit" id="submit-button">Submit!</button>
+                    </form>
+                </div>
     </div>
-</div>
+</div>    

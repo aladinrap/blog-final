@@ -1,49 +1,27 @@
-
-
 <div class="articles-container">
-    <h1>Articole URZISOFT:</h1>
     <% if(articles != null){ %>
-        <% for(var i=0; i < articles.length; i++) {%>
-        <div class="article">
-            <div class="article-content">
-                <h2><a href="/blog/post/<%=articles[i].id%>" style="font-size: 2.5rem;"><%= articles[i].title %></a></h2>
-                <% for(var j=0; j < users.length; j++) {%>
-                <% if(articles[i].user_id == users[j].id) { %>
-                <h3>Author: <%= users[j].username %></h3>
-                    <% } } %>
-                    <% for(var j=0; j < category.length; j++) {%>
-                        <% if(articles[i].category == category[j].id) { %>
-                        <h3>Category: <%= category[j].name %></h3>
-                    <% } } %>      
-                <div class="p"><%- articles[i].content %></div>  
-            </div>
-            <div class="comment-container">
-                <div class="comment-header">
-                    <h2>Comments:</h2>
-                    <button class="add-comment">ADD COMMENT</button>
-                    <form class="add-comment-section" id="form-add-comment" action="/blog" method="POST">
-                        <input type="text" placeholder="Your name" name="author" id="comment-author" autocomplete="off" required >
-                        <input type="text" placeholder="Your comment!" name="content" id="comment-input" autocomplete="off" required>
-                        <input type="hidden" value=" <%= articles[i].id %>" name="postid">
-                        <button type="submit" id="submit-button">Submit!</button>
-                    </form>
+            <div class="articles-container">
+                <h1 style="margin-top: 2rem;">Our latest blog posts (3/27)</h1>
+                <% for(let i=0; i < 5; i++) { %>
+                <div class="article">
+                    <div class="image-container">
+                        <img src="<%=images[i].link%>" alt="<%=i%>">
+                    </div>
+                    <div class="content-container">
+                            <h1><a href="/blog/post/<%=articles[i].id%>" style="color: #21243D;"><%= articles[i].title %></a></h1>
+                            <div class="date-category">
+                                <p id="year-article">2020</p>  
+                            <% for(var j=0; j < category.length; j++) {%>
+                                <% if(articles[i].category_id === category[j].id) { %>
+                                    <h4><%= category[j].name %></h4>
+                            <% } } %>  
+                            </div>  
+                            <div><%- articles[i].content.substring(0, 150) %>...</div>  
+                    </div>
                 </div>
-                <% for(var j=0; j < comments.length; j++) {%>
-                    <% if( comments[j].post_id == articles[i].id ) {%>
-                <div class="comment-content">
-                    <h3>Author: <%= comments[j].author %></h3>
-                    <p> <%= comments[j].content %></p>
-                </div>
-                    <% } else { %>
-                        <% } } %>
+                <hr>
+                <% } %>
             </div>
-            <div class="tools-article">
-                <box-icon type='solid' name='comment' color="whitesmoke" class="comment-section"></box-icon>
-                <box-icon name='like' type='solid' color="whitesmoke"></box-icon>
-                <box-icon name='report' type='solid' color="whitesmoke" ></box-icon>
-            </div>
-        </div>
-        <% } %>
                 <%}else{%>
                     <p>No articles avaible!</p>
                 <%}%>

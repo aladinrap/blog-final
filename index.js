@@ -7,7 +7,7 @@ const cookie = require("cookie-parser");
 const bodyParser = require('body-parser');
 const path = require("path");
 const adminRoute = require("./routes/admin");
-const categoriesRoute = require("./routes/admin");
+const categoriesRoute = require("./routes/categories");
 const usersRoute = require("./routes/users");
 const postsRoute = require("./routes/posts");
 const commentsRoute = require("./routes/comments");
@@ -31,8 +31,8 @@ app.use("/admin/categories", categoriesRoute);
 app.use("/admin/users", usersRoute);
 app.use("/admin/posts", postsRoute);
 app.use("/admin/posts/:postId/comments", commentsRoute);
-app.set("/admin/password", passwordRoute);
-app.set("/blog", blogRoute);
+app.use("/admin/password", passwordRoute);
+app.use("/blog", blogRoute);
 
 
 db.connect((err) => {
