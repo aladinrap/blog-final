@@ -31,6 +31,16 @@ header{
 textarea::placeholder{
     color: #222;
 }
+.left-container{
+    font-family: 'DM Sans';
+    font-style: normal;
+    text-align: left;
+    font-weight: 700;
+    font-size: 18px;
+    color: #1E0E62;
+    width: 45%;
+    margin: auto;
+}
 .our-clients-content{
     background-color: #2F1893;
     margin: auto;

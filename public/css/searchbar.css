@@ -6,11 +6,14 @@
 .search-container{
     font-family: 'DM Sans';
     font-style: normal;
-    font-size: 2rem;
+    font-size: 1.5rem;
     letter-spacing: -1px;
     color: #1E0E62;
     width: 45%;
     margin: auto;
+}
+.search-container input{
+    margin-top: 2rem;
 }
 .search-container p{
     font-family: 'DM Sans';
@@ -52,10 +55,11 @@
     margin-right: 50px;
     border: none;
 }
-#searchBar{
+#search-bar{
     flex: 5;
     border-radius: 10px;
-    font-size: 2rem;
+    margin-right: 1rem;
+    height: 50px;
     width: 50%;
     padding: 5px;
 }

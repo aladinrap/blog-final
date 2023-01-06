@@ -8,6 +8,7 @@
         <h1><%=post.title%></h1>
         <h5>14 January 2023</h5>
         <p><%-post.content%></p>
+        <img src="https://i.imgur.com/8m1BmVP.png" alt="alt" style="max-height: 500px; margin-bottom: 2rem;">
     </div>
     <div class="contact-container">    
         <p>Article by: <span style="color: #E93A7D;"><%=user.username%></span></p>
@@ -33,12 +34,13 @@
             <% } else { %>
                 <% } } %>
                 <div class="comment-header">
-                    <button id="pink-button">Add Comment</button>
+                    <button id="pink-button" class="add-comment">Add Comment</button>
                     <form class="add-comment-section" id="form-add-comment" action="/admin/posts/:postId/comments/blog" method="POST">
                         <input type="text" placeholder="Your name" name="author" id="comment-author" autocomplete="off" required >
-                        <input type="text" placeholder="Your comment!" name="content" id="comment-input" autocomplete="off" required>
+                        <input type="text" placeholder="Your comment" name="content" id="comment-input" autocomplete="off" required>
                         <input type="hidden" value=" <%= post.id %>" name="postid">
-                        <button type="submit" id="submit-button">Submit!</button>
+                        <br>
+                        <button type="submit" id="blue-button">Submit</button>
                     </form>
                 </div>
     </div>

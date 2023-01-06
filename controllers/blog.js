@@ -61,7 +61,10 @@ const checkpost = (req, res) => {
         const search = req.body.searchinput;
         db.query('SELECT * FROM posts', (err, articles) => {
             if(err) throw err;
-                res.render('./blog/find', { title: 'Login URZISOFT', layout: './layouts/home', message: "Acestea sunt articolele gasite:", articles, search:search});
+            db.query("SELECT * FROM images", (err, images) => {
+                if(err) throw err;
+                res.render('./blog/find', { title: 'Login URZISOFT', layout: './layouts/home', message: "Acestea sunt articolele gasite:", articles, search:search, images});
+                })
         })
     }
 
