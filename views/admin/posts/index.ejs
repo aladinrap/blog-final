@@ -14,7 +14,7 @@
                 <% if(articles[i].category == category[j].id) { %>
                 <p>Category: <%= category[j].name %></p>
             <% } } %> 
-            <button class="check-comments-button"><a href="/admin/posts/<%=articles[i].id%>/comments">Check comments</a></button>
+            <button class="check-comments-button"><a href="/admin/posts/comments/<%=articles[i].id%>">Check comments</a></button>
         </div>
         <% } }%>
     </div>
@@ -40,7 +40,7 @@
                         <p>Category: <%= category[j].name %></p>
                     <% } } %>      
 
-            <button class="check-comments-button"><a href="/admin/posts/<%=articles[i].id%>/comments">Check comments</a></button>
+            <button class="check-comments-button"><a href="/admin/posts/comments/<%=articles[i].id%>">Check comments</a></button>
         </div>
         <% } } %>
     </div>

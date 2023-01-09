@@ -66,7 +66,6 @@ textarea::placeholder{
 }
 .our-clients-logo{
     display: flex;
-    max-width: 80%;
     margin: auto;
     margin-top: 1rem;
 }
@@ -105,15 +104,16 @@ textarea::placeholder{
     display: flex;
     margin: auto;
     margin-bottom: 2rem;
+    justify-content: space-between;
 }
 .features-card{
-    max-width: 30%;
     margin: auto;
     padding: 2rem;
     border: 1px solid rgba(255,255,255,0.3);
     border-radius: 10px;
     text-align: center;
     height: 460px;
+    max-width: 370px;
 }
 .features-card h4{
     font-family: 'DM Sans';
@@ -184,14 +184,12 @@ section{
     letter-spacing: -1px;
     color: #1E0E62;
     margin: 0;
+
 }
 
-.showmenu{
-    margin-top: 1rem;
-}
 
 nav{
-    padding: 2% 8%;
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
     background-color: #2F1893;
@@ -216,7 +214,8 @@ nav ul{
 }
 nav ul li{
     display: inline-block;
-    margin-left: 2.5rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
 }
 nav ul li a:hover{
     color: gray;
@@ -248,6 +247,8 @@ nav ul li a:hover{
     border-radius: 16px;
     line-height: 22px;
     margin-right: 1rem;
+    width: 62px;
+    text-align: center;
 }
 hr{
     border: 1px solid #E0E0E0;
@@ -336,7 +337,7 @@ hr{
     margin-bottom: 1.5rem;
 }
 #mail-input{
-    width: 450px;
+    width: 100%;
     height: 170px;
     border-radius: 10px;
     padding: 10px;
@@ -366,29 +367,7 @@ hr{
 #blue-button:hover{
         cursor: pointer;
   }
-@media only screen and (max-width: 768px){
-    #meniu{
-        display: block;
-        position: absolute;
-        top: 18px;
-        right: 32px;
-    }   
-    nav{
-        flex-direction: column;
-        position: relative;
-    }
-    nav ul{
-        background: whitesmoke;
-        display: none;
-    }
-    nav ul li{
-        display: block;
-        padding: 2% 0;
-    }
-    nav ul li a{
-        color: #222;
-    }
-}
+
 
 footer{
     background-color: #2F1893;
@@ -443,4 +422,88 @@ footer{
     margin: auto;
     opacity: 0.8;
 }
+@media only screen and (max-width: 1390px){
+    .formular{
+        margin-top: 3rem;
+    }
+}
 
+@media only screen and (max-width: 1024px){
+    .header-image{
+        display: none;
+    }
+    .search-container{
+        width: 80%;
+    }
+    .our-clients-logo{
+        flex-direction: column;
+    }
+    .our-clients-logo img {
+        margin-top: 1rem;
+        margin-bottom:  1rem;
+    }
+    .features-cards {
+        flex-direction: column;
+    }
+    .features-card{
+        max-width: 80%;
+        margin-top: 2rem;
+    }
+    .footer-container{
+        flex-direction: column;
+    }
+    .social-media {
+        justify-content: space-evenly;
+    }
+  }
+@media only screen and (max-width: 795px){
+    #meniu{
+        display: block;
+        position: absolute;
+    }
+    #meniu:hover{
+        cursor: pointer;
+    }
+    #nav-search{
+        display: none;
+    }   
+    .logo {
+        text-align: center;
+    }
+    nav{
+        flex-direction: column;
+        position: relative;
+    }
+    nav ul{
+        background: #2F1893;
+        color: #FFFFFF;
+        text-align: center;
+        display: none;
+    }
+    nav ul li{
+        display: block;
+        color: #FFFFFF;
+        padding: 1rem;
+    }
+    nav ul li a{
+        color: whitesmoke;
+    }
+    .purple-article{
+        flex-direction: column;
+        text-align: center;
+    }
+    #harta{
+        width: 250px;
+        height: 150px;
+    }
+    .get-in-touch{
+        text-align: center;
+    }
+    .formular{
+        margin: 0;
+        margin-top: 3rem;
+    }
+    .features-content h4 {
+       max-width: 100%;
+    }
+}

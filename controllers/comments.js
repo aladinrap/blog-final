@@ -2,10 +2,10 @@ const e = require("express");
 const db = require("../db-config");
 
 const index = (req, res) => {
-
     const postId = req.params.postId;
+    console.log(postId);
 
-    if(!postId) return res.redirect("./admin/posts");
+    if(!postId) return res.redirect("/admin/posts");
     if(!req.user) return res.redirect("/admin/login");
     else {
             db.query('SELECT * FROM posts WHERE id = ?', [postId], (err, postResult) => {

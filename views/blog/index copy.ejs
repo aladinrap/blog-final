@@ -1,21 +1,22 @@
+<div class="articles-container">
     <% if(articles != null){ %>
-            <div class="articole">
+            <div class="articles-container">
                 <h1 style="margin-top: 2rem;">Our latest blog posts (3/27)</h1>
                 <% for(let i=0; i < 5; i++) { %>
-                <div class="articol">
-                    <div class="articol__image">
+                <div class="article">
+                    <div class="image-container">
                         <img src="<%=images[i].link%>" alt="<%=i%>">
                     </div>
-                    <div class="articol__content">
+                    <div class="content-container">
                             <h1><a href="/blog/post/<%=articles[i].id%>" style="color: #21243D;"><%= articles[i].title %></a></h1>
-                            <div class="articol__content--category">
+                            <div class="date-category">
                                 <p id="year-article">2020</p>  
                             <% for(var j=0; j < category.length; j++) {%>
                                 <% if(articles[i].category_id === category[j].id) { %>
                                     <h4><%= category[j].name %></h4>
                             <% } } %>  
                             </div>  
-                            <%- articles[i].content.substring(0, 150) %>... 
+                            <div><%- articles[i].content.substring(0, 150) %>...</div>  
                     </div>
                 </div>
                 <hr>
@@ -24,3 +25,4 @@
                 <%}else{%>
                     <p>No articles avaible!</p>
                 <%}%>
+</div>

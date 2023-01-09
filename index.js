@@ -30,7 +30,7 @@ app.use("/admin", adminRoute);
 app.use("/admin/categories", categoriesRoute);
 app.use("/admin/users", usersRoute);
 app.use("/admin/posts", postsRoute);
-app.use("/admin/posts/:postId/comments", commentsRoute);
+app.use("/admin/posts/comments", commentsRoute);
 app.use("/admin/password", passwordRoute);
 app.use("/blog", blogRoute);
 

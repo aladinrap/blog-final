@@ -12,6 +12,7 @@
     width: 45%;
     margin: auto;
 }
+
 .search-container input{
     margin-top: 2rem;
 }
@@ -100,3 +101,24 @@
         margin: 1rem 0 0 0;
     }
 }
+@media only screen and (max-width: 795px){
+    .container a{
+        margin-top: 2rem;
+    }
+    .container{
+        justify-content: space-evenly;
+    }
+    .content{
+        text-align: center;
+    }
+    .search-container p{
+        width: auto;
+        text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 1024px){
+    .search-container{
+        width: 80%;
+    }
+  }

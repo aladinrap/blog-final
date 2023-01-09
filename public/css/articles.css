@@ -1,0 +1,66 @@
+.articole {
+  width: 80%;
+  margin: auto;
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 30px;
+  color: #21243D;
+  margin-bottom: 2rem;
+}
+
+.articol {
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 2rem;
+}
+.articol__content {
+  border-radius: 10px;
+  width: 90%;
+  margin-left: 1rem;
+}
+.articol__content h4 {
+  font-family: "Heebo";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 29px;
+  color: #8695A4;
+  margin-top: 0.3rem;
+}
+.articol__content--category {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+@media only screen and (max-width: 795px) {
+  .articole {
+    width: 100%;
+  }
+  .articole h1 {
+    margin-left: 1rem;
+  }
+  .articole__content {
+    max-width: 400px;
+    margin: auto;
+  }
+  .articole__content--category {
+    margin: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  .articol {
+    flex-direction: column;
+    text-align: center;
+  }
+  .articol img {
+    min-width: 350px;
+    min-height: 250px;
+  }
+  #year-article {
+    background-color: #142850;
+    max-height: 30px;
+  }
+}/*# sourceMappingURL=articles.css.map */
