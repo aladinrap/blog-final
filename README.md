@@ -14,6 +14,8 @@ Site-ul la baza este un blog impartit in doua, partea de guests si partea de adm
 
 De asemenea site-ul dispune de un sistem de reset password cu link pe email.
 
+
+
 Blog Features (guest)
 
  ✓ Home (Feed with search bar)
@@ -24,6 +26,8 @@ Blog Features (guest)
  
  ✓ Add comment
  
+
+
 
 
 Features (admin)
@@ -56,6 +60,8 @@ Features (admin)
  
  ✓ Master admin (can see all posts and manage users)
  
+ 
+ 
 Extra:
 
  ✓ View categories
@@ -64,6 +70,8 @@ Extra:
  
  ✓ Delete category*
  
+
+
 
 Guest Routes:
 
@@ -78,6 +86,8 @@ Guest Routes:
 /admin/register
 
 /admin/password-reset/{secret} = reset password page
+
+
 
 
 
@@ -110,6 +120,8 @@ Admin routes
 
 
 
+
+
 Extra:
 
 /admin/categories
@@ -125,6 +137,8 @@ Extra:
 
 
 ✓ Route grouping & Middleware
+
+
 
 
 
