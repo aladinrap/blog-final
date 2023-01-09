@@ -15,30 +15,55 @@ Site-ul la baza este un blog impartit in doua, partea de guests si partea de adm
 De asemenea site-ul dispune de un sistem de reset password cu link pe email.
 
 Blog Features (guest)
+
  ✓ Home (Feed with search bar)
+ 
  ✓ Search results page
+ 
  ✓ View post
+ 
  ✓ Add comment
+ 
+
 
 Features (admin)
+
  ✓ Login
+ 
  ✓ Register
+ 
  ✓ Reset password (with reset link)
+ 
  ✓ View posts
+ 
  ✓ Create post
+ 
  ✓ Create post with (WYSIWYG editor)
+ 
  ✓ Edit post (update)
+ 
  ✓ Delete post
+ 
  ✓ Manage comments
+ 
  ✓ View users
+ 
  ✓ Create user
+ 
  ✓ Edit user
+ 
  ✓ Delete user
+ 
  ✓ Master admin (can see all posts and manage users)
+ 
 Extra:
+
  ✓ View categories
+ 
  ✓ Create category*
+ 
  ✓ Delete category*
+ 
 
 Guest Routes:
 / = home
