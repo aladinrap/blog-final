@@ -3,12 +3,19 @@
 Tehnologii folosite: 
 
 ● Backend: Express (NodeJS), REST APIs
+
 ● FrontEnd: HTML, Vanilla JS DOM, CSS, SASS with BEM, EJS
+
 ● Databases: MySQL
 
+
+
 ● CI/CD: Git
+
 ● Management: Github
+
 ● UI/UX: Figma
+
 
 Site-ul la baza este un blog impartit in doua, partea de guests si partea de admin. Ca si guest poti intra si vizualiza articolele de pe site, poti cauta articole si poti adauga comentarii articolelor. Ca si admin poti crea postari(acestea sunt impartite pe categorii), edita si sterge postari, poti crea, edita si sterge categorii, poti edita si sterge comentarii si poti crea si sterge alti useri.
 
