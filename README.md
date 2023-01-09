@@ -66,46 +66,87 @@ Extra:
  
 
 Guest Routes:
+
 / = home
+
 /search?q=post+title = search + keyword
+
 /post/{slug} = view post by slug
+
 /admin/login
+
 /admin/register
+
 /admin/password-reset/{secret} = reset password page
 
+
+
 Admin routes
+
 /admin = Admin dashboard
+
 /admin/posts
+
+
 /admin/posts/create
+
 /admin/posts/edit/{id}
+
 /admin/posts/update
+
 /admin/posts/delete
+
 /admin/comments
+
 /admin/comments/delete
+
 /admin/users
+
 /admin/users/edit
+
 /admin/users/update
+
 /admin/users/delete
 
+
+
 Extra:
+
 /admin/categories
+
 /admin/categories/create
+
 /admin/categories/delete
 
- ✓ Controller naming & function naming & route verbs (POST/GET)
 
- ✓ Route grouping & Middleware
 
- ✓ Default database migration file
- ⁃ Create tables
- ⁃ Assign foreign keys
- ⁃ Seeder for 1 admin user
- ⁃ Seeder for 3 categories
- ⁃ Seeder for 3 posts
- ⁃ Seeder for 3 comments per post
- ⁃ > Folder: database > database_init.js / user_seeder.js / categories_seeder.js / posts_seeder.js / comments_seeder.js
+✓ Controller naming & function naming & route verbs (POST/GET)
 
- ✓ Form Validation(Login&Register)
+
+
+✓ Route grouping & Middleware
+
+
+
+✓ Default database migration file
+
+⁃ Create tables
+
+⁃ Assign foreign keys
+
+⁃ Seeder for 1 admin user
+
+⁃ Seeder for 3 categories
+
+⁃ Seeder for 3 posts
+
+⁃ Seeder for 3 comments per post
+
+⁃ > Folder: database > database_init.js / user_seeder.js / categories_seeder.js / posts_seeder.js / comments_seeder.js
+
+
+✓ Form Validation(Login&Register)
 
 ✓ Frontend responsive
+
 ✓ Refactor cu Sass si BEM (o pagina dim. Medie)
