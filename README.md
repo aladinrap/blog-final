@@ -1,7 +1,7 @@
 # blog-final
 
 <br>
-Site-ul la baza este un blog impartit in doua, partea de guests si partea de admin. Ca si guest poti intra si vizualiza articolele de pe site, poti cauta articole si poti adauga comentarii articolelor. Ca si admin poti crea postari(acestea sunt impartite pe categorii), edita si sterge postari, poti crea, edita si sterge categorii, poti edita si sterge comentarii si poti crea si sterge alti useri.
+Site-ul la baza este un blog impartit in doua planuri, partea de guests si partea de admin. Ca si guest poti intra si vizualiza articolele de pe site, poti cauta articole si poti adauga comentarii articolelor. Ca si admin poti crea postari(acestea sunt impartite pe categorii), edita si sterge postari, poti crea, edita si sterge categorii, poti edita si sterge comentarii si poti crea si sterge alti useri.
 <br>
 De asemenea site-ul dispune de un sistem de reset password cu link pe email.
 <br>
