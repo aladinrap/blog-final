@@ -25,19 +25,6 @@ De asemenea site-ul dispune de un sistem de reset password cu link pe email.
 ● UI/UX: Figma
 
 
-<b>Blog Features (guest)</b><br>
-
- ✓ Home (Feed with search bar)
- 
- ✓ Search results page
- 
- ✓ View post
- 
- ✓ Add comment
- 
-
-
-
 <br>
 
 <b>How to run it</b>
@@ -80,6 +67,19 @@ https://imgur.com/a/dsi2fp5
 <br>
 
 <b>3.Use "nodemon" in terminal to run server. Puteti accesa "localhost:5000/admin/users/emergency" pentru a crea tabele in baza de date si un cont de admin. Acesta va mai genera si 3 postari cu cate 3 comentarii fiecare si 3 categorii.</b>
+
+
+
+<b>Blog Features (guest)</b><br>
+
+ ✓ Home (Feed with search bar)
+ 
+ ✓ Search results page
+ 
+ ✓ View post
+ 
+ ✓ Add comment
+ 
 
 
 
